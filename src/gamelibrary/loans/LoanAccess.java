@@ -1,6 +1,8 @@
 package gamelibrary.loans;
 
+import gamelibrary.games.BoardGame;
 import gamelibrary.games.GameAccess;
+import gamelibrary.members.Member;
 import gamelibrary.members.MemberAccess;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,13 +28,18 @@ public class LoanAccess {
     
     /* A FAIRE */
     public void borrowBoardGame(String member, String game) {
-        
+        Member m = mAccess.getMember(member);
+        BoardGame bg = gAccess.getBoardGame(game);
+        Loan loan = new Loan(bg, m);
+        allLoans.add(loan);
+        /* AJOUTER UNE CONDITION SI LE JEU EST DEJA PRETE (if (!isBoardGameOnLoan)) */
     }
 
     public void returnBoardGame(String member, String game) {
     }
     
     public boolean isBoardGameOnLoan(String game){
+        
         return false;
     }
     public boolean isVideoGameOnLoan(String game) {
@@ -41,12 +48,12 @@ public class LoanAccess {
     
     /* AJOUT */
     public ArrayList<String> getAllLoansAsStrings() {
-        ArrayList<String> loanAsStrings = new ArrayList<>();
+        ArrayList<String> loansAsStrings = new ArrayList<>();
         for (Loan loans : allLoans) {
             String loan = loans.toString();
-            loanAsStrings.add(loan);
+            loansAsStrings.add(loan);
         }
-        return loanAsStrings;
+        return loansAsStrings;
     }
     
 }

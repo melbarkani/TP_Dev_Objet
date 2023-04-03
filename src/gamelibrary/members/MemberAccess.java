@@ -9,7 +9,7 @@ public class MemberAccess {
     private GameAccess gAccess;
     private LoanAccess lAccess;
     /* AJOUT */
-    ArrayList<String> allMembers;
+    ArrayList<Member> allMembers;
     public MemberAccess(GameAccess gAccess) {
         this.gAccess = gAccess;
         gAccess.setMemberAccess(this);
@@ -21,14 +21,23 @@ public class MemberAccess {
     
     public void addMember(String name) {
         /* AJOUT */
-        allMembers.add(name);
+        allMembers.add(new Member(name));
+    }
+    
+    public Member getMember(String name) {
+        for (Member member : allMembers) {
+            if (member.getName().equals(name)) {
+                return member;
+            }
+        }
+        return null;
     }
     
     /* AJOUT */
     public ArrayList<String> getAllMemberNames() {
         ArrayList<String> list = new ArrayList<>();
-        for (String s : allMembers) {
-            list.add(s);
+        for (Member m : allMembers) {
+            list.add(m.toString());
         }
         return list;
     }

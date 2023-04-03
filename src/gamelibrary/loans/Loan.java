@@ -9,6 +9,7 @@ public class Loan {
     private final Game borrowedGame;
     private final Member borrower;
     private final Date borrowedOn;
+    
     /* AJOUT */
     private BoardGame borrowedBGame;
     Loan(Game game, Member member) {
@@ -20,5 +21,10 @@ public class Loan {
         final long NOW = new Date().getTime();
         final int MILLI = 1000;
         return (int)((NOW - borrowedOn.getTime())/MILLI);
+    }
+    
+    @Override
+    public String toString() {
+        return "Loan{" + "borrowedGame=" + borrowedGame + ", borrower=" + borrower + ", borrowedOn=" + borrowedOn + ", borrowedBGame=" + borrowedBGame + '}';
     }
 }

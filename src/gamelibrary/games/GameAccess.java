@@ -41,4 +41,8 @@ public class GameAccess {
     public void setLoanAccess(LoanAccess lAccess) {
         this.lAccess = lAccess;
     }
+    
+    public BoardGame getBoardGame(String game) {
+        return allBoardGames.get(game);
+    }
 }
