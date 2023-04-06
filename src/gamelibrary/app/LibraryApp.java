@@ -85,6 +85,15 @@ public class LibraryApp {
         } while (min > input || max < input);
         return input;
     }
+    
+    private int ARR_userChoiceInput(String prompt) {
+        int input = -1;
+        do {
+            System.out.format("%s. \nYour choice? [%d - %d]\n", prompt, 0, 1);
+            input = scan.nextInt();
+        } while (0 > input || 2 < input);
+        return input;
+    }
 
     private String ARR_userStringInput(String prompt) {
         String input;
@@ -123,6 +132,15 @@ public class LibraryApp {
         }
         return searchListByPart(partName, gameNames);
     }
+    
+    private ArrayList<String> searchVideoGameByName(String partName) {
+        ArrayList<String> games = gAccess.getAllVideoGameNames();
+        ArrayList<String> gameNames = new ArrayList<>();
+        for (String game : games) {
+            gameNames.add(game);
+        }
+        return searchListByPart(partName, gameNames);
+    }
 
     private boolean performAction(int choice) {
         boolean res = false;
@@ -131,29 +149,28 @@ public class LibraryApp {
                 res = true;
                 break;
             case 1:
-                displayAllBoardGames();
-                //displayAllVideoGames();
+                choiceDisplayGame();
                 break;
             case 2:
                 performNewBoardGameEntry();
                 break;
             case 3:
-                //performNewVideoGameEntry();
+                performNewVideoGameEntry();
                 break;
             case 4:
-                //performNewMemberEntry();
+                performNewMemberEntry();
                 break;
             case 5:
                 performNewBoardGameLoan();
                 break;
             case 6:
-                //performNewVideoGameLoan();
+                performNewVideoGameLoan();
                 break;
             case 7:
-                displayAllLoans();
+                displayAllLoans();  // ----
                 break;
             case 8:
-                performBoardGameSearchByPlayers();
+                performBoardGameSearchByPlayers(); // ----
                 break;
             case 9:
                 //performVideoGameSearchByPlatform();
@@ -170,6 +187,15 @@ public class LibraryApp {
         }
         return res;
     }
+    
+    private void choiceDisplayGame() {
+        int choice = ARR_userChoiceInput("Choose 0 to display the Board Games or 1 to display the Video Games");
+        if (choice == 0) {
+            displayAllBoardGames();
+        } else {
+            displayAllVideoGames();
+        }
+    }
 
     private void performNewBoardGameEntry() {
         String name = ARR_userStringInput("the name");
@@ -179,7 +205,20 @@ public class LibraryApp {
         String genre = ARR_userStringInput("the genre");
         gAccess.addBoardGame(name, publisher, minPlayers, maxPlayers, genre);
     }
-
+    
+    private void performNewVideoGameEntry() {
+        String name = ARR_userStringInput("the name");
+        String platform = ARR_userStringInput("the platform");
+        String publisher = ARR_userStringInput("the publisher");
+        String genre = ARR_userStringInput("the genre");
+        gAccess.addVideoGame(name, platform, publisher, genre);
+    }
+    
+    private void performNewMemberEntry() {
+        String name = ARR_userStringInput("the name");
+        mAccess.addMember(name);
+    }
+            
     private void performNewBoardGameLoan() {
         String partName = ARR_userStringInput("part of the name of the member");
         ArrayList<String> memberNames = searchMemberByName(partName);
@@ -196,6 +235,24 @@ public class LibraryApp {
         }
         String gameName = gameNames.get(ARR_userNumericInput(0, gameNames.size() - 1, "Which game?"));
         lAccess.borrowBoardGame(member, gameName);
+    }
+    
+    private void performNewVideoGameLoan() {
+        String partName = ARR_userStringInput("part of the name of the member");
+        ArrayList<String> memberNames = searchMemberByName(partName);
+        displayList(memberNames);
+        if (memberNames.isEmpty()) {
+            return;
+        }
+        String member = memberNames.get(ARR_userNumericInput(0, memberNames.size() - 1, "Which member?"));
+        partName = ARR_userStringInput("part of the name of the game");
+        ArrayList<String> gameNames = searchVideoGameByName(partName);
+        displayList(gameNames);
+        if (gameNames.isEmpty()) {
+            return;
+        }
+        String gameName = gameNames.get(ARR_userNumericInput(0, gameNames.size() - 1, "Which game?"));
+        lAccess.borrowVideoGame(member, gameName);
     }
 
     private void displayAllLoans() {
@@ -233,5 +290,9 @@ public class LibraryApp {
 
     private void displayAllBoardGames() {
         displayList(gAccess.getAllBoardGameNames());
+    }
+    
+    private void displayAllVideoGames() {
+        displayList(gAccess.getAllVideoGameNames());
     }
 }

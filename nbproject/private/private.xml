@@ -3,14 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/mnt/roost/users/melbarkaniai/IUT/TP_Dev_Objet/src/gamelibrary/games/BoardGame.java</file>
-            <file>file:/mnt/roost/users/melbarkaniai/IUT/TP_Dev_Objet/src/gamelibrary/app/LibraryApp.java</file>
-            <file>file:/mnt/roost/users/melbarkaniai/IUT/TP_Dev_Objet/src/gamelibrary/loans/Loan.java</file>
-            <file>file:/mnt/roost/users/melbarkaniai/IUT/TP_Dev_Objet/src/gamelibrary/games/GameAccess.java</file>
-            <file>file:/mnt/roost/users/melbarkaniai/IUT/TP_Dev_Objet/src/gamelibrary/members/MemberAccess.java</file>
-            <file>file:/mnt/roost/users/melbarkaniai/IUT/TP_Dev_Objet/src/gamelibrary/members/Member.java</file>
-            <file>file:/mnt/roost/users/melbarkaniai/IUT/TP_Dev_Objet/src/gamelibrary/app/Main.java</file>
-            <file>file:/mnt/roost/users/melbarkaniai/IUT/TP_Dev_Objet/src/gamelibrary/loans/LoanAccess.java</file>
+            <file>file:/C:/Users/barka/Desktop/TP_Dev_Objet/src/gamelibrary/games/VideoGame.java</file>
+            <file>file:/C:/Users/barka/Desktop/TP_Dev_Objet/src/gamelibrary/app/LibraryApp.java</file>
+            <file>file:/C:/Users/barka/Desktop/TP_Dev_Objet/src/gamelibrary/games/GameAccess.java</file>
+            <file>file:/C:/Users/barka/Desktop/TP_Dev_Objet/src/gamelibrary/members/MemberAccess.java</file>
+            <file>file:/C:/Users/barka/Desktop/TP_Dev_Objet/test/gamelibrary/app/LibraryAppTest.java</file>
+            <file>file:/C:/Users/barka/Desktop/TP_Dev_Objet/src/gamelibrary/members/Member.java</file>
+            <file>file:/C:/Users/barka/Desktop/TP_Dev_Objet/src/gamelibrary/games/BoardGame.java</file>
+            <file>file:/C:/Users/barka/Desktop/TP_Dev_Objet/src/gamelibrary/app/Main.java</file>
+            <file>file:/C:/Users/barka/Desktop/TP_Dev_Objet/test/gamelibrary/games/GameAccessTest.java</file>
+            <file>file:/C:/Users/barka/Desktop/TP_Dev_Objet/src/gamelibrary/games/Game.java</file>
+            <file>file:/C:/Users/barka/Desktop/TP_Dev_Objet/src/gamelibrary/loans/LoanAccess.java</file>
+            <file>file:/C:/Users/barka/Desktop/TP_Dev_Objet/src/gamelibrary/loans/Loan.java</file>
+            <file>file:/C:/Users/barka/Desktop/TP_Dev_Objet/test/gamelibrary/games/BoardGameTest.java</file>
         </group>
     </open-files>
 </project-private>

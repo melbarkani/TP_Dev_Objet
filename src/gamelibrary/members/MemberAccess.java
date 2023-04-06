@@ -20,7 +20,6 @@ public class MemberAccess {
     }
     
     public void addMember(String name) {
-        /* AJOUT */
         allMembers.add(new Member(name));
     }
     

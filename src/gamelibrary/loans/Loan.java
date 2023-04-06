@@ -12,15 +12,21 @@ public class Loan {
     
     /* AJOUT */
     private BoardGame borrowedBGame;
+    
     Loan(Game game, Member member) {
         borrowedGame = game;
         borrower = member;
         borrowedOn = new Date();
     }
+    
     int getSecondsSinceLoanMade() {
         final long NOW = new Date().getTime();
         final int MILLI = 1000;
         return (int)((NOW - borrowedOn.getTime())/MILLI);
+    }
+    
+    public Game getBorrowedGame() {
+        return borrowedGame;
     }
     
     @Override
